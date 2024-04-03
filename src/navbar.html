@@ -47,18 +47,18 @@
         <h3 class="text-2xl md:text-4xl font-semibold">Suits Irl</h3>
 
         </div>
-        <button onclick="onToggleMenu()"><img id="menu_image" src="/images/menu.svg" alt="" class="w-8"></button>
+        <button  onclick="onToggleMenu()"><img id="menu_image" src="/images/menu.svg" alt="" class="w-8"></button>
       </section class="nav-Links">
       
       <!-- Navbar Links -->
         <ul id="navbar-links" class="flex gap-4 invisible text-lg absolute flex-col top-28 bg-white w-full px-8 shadow-sm py-8">
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Products</a></li>
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Solutions</a></li>
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Developers</a></li>
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Businesses</a></li>
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Pricing</a></li>
-          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#" target="_blank" rel="noopener noreferrer">Login</a></li>
-        <li class="bg-blue-700 text-white p-2 px-4 rounded-full hover:bg-blue-800 w-fit"><a href="#" target="_blank" rel="noopener noreferrer">Sign Up</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#">Products</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#">Solutions</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#">Developers</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#">Businesses</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#">Pricing</a></li>
+          <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a onclick="menuCloser()" href="#"  >Login</a></li>
+        <li class="bg-blue-700 text-white p-2 px-4 rounded-full hover:bg-blue-800 w-fit"><a href="#" >Sign Up</a></li>
         
         </ul>
       
@@ -69,14 +69,15 @@
       // the hidden menu displays
       // the icon changes
       let toggle = true
+       //selecting the image using the id
+       const image = document.getElementById('menu_image')
+        //selecting the navbar links
+        var menu_class = document.getElementById('navbar-links')
        function onToggleMenu () {
         console.log("This has been clicked")
         //assinging a toggle variagle
         
-        //selecting the image using the id
-        const image = document.getElementById('menu_image')
-        //selecting the navbar links
-        var menu_class = document.getElementById('navbar-links')
+       
         //updating the image source
        if (toggle === true){
         image.src = '/images/close.svg'
@@ -90,6 +91,12 @@
         menu_class.classList.add('invisible')
        }
        toggle = !toggle
+      }
+
+      // i want to add a function that closes the mobile menu after each click.
+      function menuCloser () {
+        menu_class.classList.add('invisible')
+        console.log("menu closer clicked")    
       }
     </script>
 </body>
