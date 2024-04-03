@@ -51,7 +51,7 @@
       </section class="nav-Links">
       
       <!-- Navbar Links -->
-        <ul class="flex gap-4 invisible text-lg absolute flex-col top-28 bg-white w-full px-8 shadow-sm py-8">
+        <ul id="navbar-links" class="flex gap-4 invisible text-lg absolute flex-col top-28 bg-white w-full px-8 shadow-sm py-8">
           <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Products</a></li>
           <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Solutions</a></li>
           <li class="p-2 rounded-full px-4 hover:bg-blue-50 w-fit"><a href="#">Developers</a></li>
@@ -75,12 +75,19 @@
         
         //selecting the image using the id
         const image = document.getElementById('menu_image')
+        //selecting the navbar links
+        var menu_class = document.getElementById('navbar-links')
         //updating the image source
        if (toggle === true){
         image.src = '/images/close.svg'
+        // now we must proceed by displaying the hidden menu
+        // this is done by removing the invisible class 
+        menu_class.classList.remove('invisible')
        }
        else{
         image.src = '/images/menu.svg'
+        //and here we must proceed to hide the menu no matter what 
+        menu_class.classList.add('invisible')
        }
        toggle = !toggle
       }
